@@ -5,7 +5,8 @@ import {AppComponent} from './app.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {PostComponent} from './post/post.component';
 import {Route, RouterModule} from "@angular/router";
-import { PostDetailsComponent } from './post-details/post-details.component';
+import {PostDetailsComponent} from './post-details/post-details.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const routes: Route[] = [
   {
@@ -13,19 +14,19 @@ const routes: Route[] = [
     component: HomePageComponent
   },
   {
-    path:"post/:id",
+    path: "post/:id",
     component: PostDetailsComponent
   },
   {
     path: "",
-    pathMatch:"full",
+    pathMatch: "full",
     redirectTo: "home"
   },
   {
     path: "**",
     redirectTo: "home"
   }
-]
+];
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ const routes: Route[] = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

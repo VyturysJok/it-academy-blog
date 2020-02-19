@@ -1,16 +1,27 @@
-import { Injectable } from '@angular/core';
-import {postList} from "./shared/post-list";
+import {Injectable} from '@angular/core';
+
+import {HttpClient} from "@angular/common/http";
+import {Post} from "./shared/post";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
 
-  constructor() { }
-  loadPosts() {
-    return postList
+  posts: Post[];
+
+  constructor(private httpClient: HttpClient) {
   }
+
+  loadPosts() {
+    return this.httpClient.get<{ posts: Post[] }>('assets/post-list.json').toPromise()
+      .then(data => {
+        this.posts = data.posts;
+        return data;
+      });
+  }
+
   loadPostById(postId: string) {
-    return postList.find(p=>p.id === postId)
+    return this.posts.find(p => p.id === postId);
   }
 }

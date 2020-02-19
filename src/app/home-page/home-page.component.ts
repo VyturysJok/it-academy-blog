@@ -15,7 +15,9 @@ export class HomePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.posts = this.postService.loadPosts();
+    this.postService.loadPosts().then(data => {
+      this.posts = data.posts;
+    });
   }
 
   handlePostReadMoreClick(post: Post) {

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { Post } from "../shared/post";
+import {Component, EventEmitter, Input, OnInit, Output} from "@angular/core";
+import {Post} from "../shared/post";
 
 @Component({
   selector: "app-post",
@@ -11,9 +11,12 @@ export class PostComponent implements OnInit {
   @Output() readMoreClick = new EventEmitter();
   @Output() commentsClick = new EventEmitter();
   @Output() authorClick = new EventEmitter();
-  constructor() {}
 
-  ngOnInit(): void {}
+  constructor() {
+  }
+
+  ngOnInit(): void {
+  }
 
   onReadMoreClick(post: Post) {
     this.readMoreClick.emit(post);

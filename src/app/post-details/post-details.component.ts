@@ -9,14 +9,14 @@ import {PostService} from "../post.service";
   styleUrls: ['./post-details.component.scss']
 })
 export class PostDetailsComponent implements OnInit {
-  post: Post
+  post: Post;
 
   constructor(private route: ActivatedRoute, private postService: PostService) {
   }
 
   ngOnInit(): void {
-    const postId = this.route.snapshot.paramMap.get('id')
-    this.post = this.postService.loadPostById(postId)
+    const postId = this.route.snapshot.paramMap.get('id');
+    this.post = this.postService.loadPostById(postId);
   }
 
 }

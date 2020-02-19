@@ -1,8 +1,8 @@
 <ul class="list-unstyled" id="posts">
   <app-post *ngFor="let currentPost of posts"
-    [post]="currentPost"
-    (readMoreClick)="handlePostReadMoreClick($event)"
-    (commentsClick)="handlePostCommentsClick($event)"
-    (authorClick)="handlePostAuthorClick($event)"
+            [post]="currentPost"
+            (readMoreClick)="handlePostReadMoreClick($event)"
+            (commentsClick)="handlePostCommentsClick($event)"
+            (authorClick)="handlePostAuthorClick($event)"
   ></app-post>
 </ul>

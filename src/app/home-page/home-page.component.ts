@@ -1,7 +1,6 @@
-import { Component, OnInit } from "@angular/core";
-import { Post } from "../shared/post";
-import { postList } from "../shared/post-list";
-
+import {Component, OnInit} from "@angular/core";
+import {Post} from "../shared/post";
+import {PostService} from "../post.service";
 
 
 @Component({
@@ -11,12 +10,12 @@ import { postList } from "../shared/post-list";
 })
 export class HomePageComponent implements OnInit {
   posts: Post[];
-  constructor() {
 
+  constructor(private postService: PostService) {
   }
 
   ngOnInit() {
-    this.posts = postList;
+    this.posts = this.postService.loadPosts();
   }
 
   handlePostReadMoreClick(post: Post) {

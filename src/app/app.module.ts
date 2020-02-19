@@ -20,6 +20,10 @@ const routes: Route[] = [
     path: "",
     pathMatch:"full",
     redirectTo: "home"
+  },
+  {
+    path: "**",
+    redirectTo: "home"
   }
 ]
 

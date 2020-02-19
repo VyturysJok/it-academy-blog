@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Post } from "../shared/post";
 import { postList } from "../shared/post-list";
 
+
+
 @Component({
   selector: "app-home-page",
   templateUrl: "./home-page.component.html",
@@ -9,7 +11,9 @@ import { postList } from "../shared/post-list";
 })
 export class HomePageComponent implements OnInit {
   posts: Post[];
-  constructor() {}
+  constructor() {
+
+  }
 
   ngOnInit() {
     this.posts = postList;
